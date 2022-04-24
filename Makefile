@@ -30,4 +30,4 @@ slproc_yacc: sl_scanner.yy.c y.tab.c
 clean:
 	@rm -f y.tab.h y.tab.c sl_lexer.yy.c sl_scanner.yy.c slproc slproc_yacc
 
-.PHONY: sl_scanner.c sl_scanner.l sc_scanner.h sl_scanner.y y.tab.c sl_lexer.yy.c sl_lexer.yy.c sl_lexer.l sl_lexer.c
+.PHONY: all clean
