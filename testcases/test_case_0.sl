@@ -1,0 +1,4 @@
+# A short example
+GIT 2 REGA REGA
+YAZ REGB 2
+YAZ REGA 5
