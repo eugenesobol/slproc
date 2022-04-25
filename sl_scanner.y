@@ -23,7 +23,7 @@ void register_sub(char symbol, int val1, int val2);
 
 void jump(int line, int val1, int val2);
 
-fpos_t sl_find_line(FILE *f, int lineno);
+long sl_find_line(FILE *f, int lineno);
 void sl_display_registers(void);
 
 int verbose = 0;
@@ -149,7 +149,7 @@ void jump(int line, int val1, int val2)
 
     if (val1 == val2) {
         int rc;
-        fpos_t pos = sl_find_line(yyin, line);
+        long pos = sl_find_line(yyin, line);
         if (pos < 0) {
             printf("Execution error: jump line doesn't exist\n");
             return;
@@ -161,7 +161,7 @@ void jump(int line, int val1, int val2)
         }
 
         if (verbose)
-            printf("seeking to position %lld result: %d\n", pos, rc);
+            printf("seeking to position %ld result: %d\n", pos, rc);
     }
 }
 
