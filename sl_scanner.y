@@ -13,6 +13,7 @@ extern int yyparse();
 extern FILE* yyin;
 
 void yyerror(const char* s);
+extern void yyrestart(FILE *f);
 
 int registers[4] = { 0 };
 
@@ -154,6 +155,8 @@ void jump(int line, int val1, int val2)
             printf("Execution error: jump line doesn't exist\n");
             return;
         }
+
+        yyrestart(yyin);
 
         rc = fseek(yyin, pos, SEEK_SET);
         if (rc < 0) {
