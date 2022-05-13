@@ -44,6 +44,7 @@ int verbose = 0;
 %%
 line    :   command 
         |   line command
+        |   error
         ;
 
 command     :   cmd_yaz 
