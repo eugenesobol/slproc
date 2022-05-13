@@ -3,14 +3,11 @@
 
 #define SL_REGISTER_COUNT 4
 
-static fpos_t sl_find_line(FILE *f, int lineno)
+static long sl_find_line(FILE *f, int lineno)
 {
     /* save file stream position before any manipulations with it */
-    fpos_t last_pos;
-    int rc = fgetpos(f, &last_pos);
-    if (rc) {
-        return rc;
-    }
+    int rc;
+    long last_pos = ftell(f);
 
     if (lineno == 0) {
         return 0;
@@ -22,7 +19,7 @@ static fpos_t sl_find_line(FILE *f, int lineno)
         return rc;
     }
 
-    fpos_t pos_count = 0;
+    long pos_count = 0;
     unsigned int line_count = 0;
     char *line = NULL;
 

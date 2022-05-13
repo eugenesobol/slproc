@@ -1,3 +1,4 @@
+MAKEFLAGS += --no-builtin-rules
 
 all: slproc
 

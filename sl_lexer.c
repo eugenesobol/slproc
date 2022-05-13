@@ -106,7 +106,7 @@ void sl_dump_registers(void)
 
 void sl_jump_to_line(int lineno)
 {
-    fpos_t pos = sl_find_line(yyin, lineno);
+    long pos = sl_find_line(yyin, lineno);
     if (pos < 0) {
         printf("Runtime exception: jump line <%d> doesn't exist\n", lineno);
         return;
